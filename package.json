@@ -1,6 +1,6 @@
 {
   "name": "jrg-qiniu-convert",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "七牛视频转码",
   "main": "index.js",
   "scripts": {

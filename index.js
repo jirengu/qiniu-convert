@@ -23,12 +23,10 @@ function convert(files){
   files.forEach(function(line){
     var key = line[0],
       saved_key = line[1],
-      bucket = config.bucket, //要转码的文件所在的空间
-      pipeline = config.pipeline, //转码所使用的队列名称。
-      saveas_key = qiniu.util.urlsafeBase64Encode(config.saved_bucket + ':' + config.saved_key),
+      saveas_key = qiniu.util.urlsafeBase64Encode(config.saved_bucket + ':' + saved_key),
       fops = config.fops + '|saveas/' + saveas_key,
       opts = {
-          pipeline: config.pipeline
+          pipeline: config.pipeline   //转码所使用的队列名称。
       };
       var PFOP = qiniu.fop.pfop(bucket, key, fops, opts, function(err, ret) {
             if(!err) {
