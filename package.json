@@ -1,10 +1,11 @@
 {
   "name": "jrg-qiniu-convert",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "七牛视频转码",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "keywords": [
     "七牛",
