@@ -21,8 +21,9 @@ fs.readFile('file.txt', function (err, data) {
 
 function convert(files){
   files.forEach(function(line){
-    var key = line[0],
+    var key = line[0].trim(),
       saved_key = line[1],
+      bucket = config.bucket,
       saveas_key = qiniu.util.urlsafeBase64Encode(config.saved_bucket + ':' + saved_key),
       fops = config.fops + '|saveas/' + saveas_key,
       opts = {
@@ -32,8 +33,10 @@ function convert(files){
             if(!err) {
               // 上传成功， 处理返回值
               console.log('curl '+'http://api.qiniu.com/status/get/prefop?id='+ret.persistentId);
+              console.log(ret);
             } else {
               // 上传失败， 处理返回代码
+              console.log('上传失败!');
               console.log(err);
             }
         });
